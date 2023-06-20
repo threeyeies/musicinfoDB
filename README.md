@@ -33,6 +33,6 @@ Administra la información sobre la temática de melodias, relacionadas con dife
 
 
 Autor:
-  diamcrustcoding@gmail.com
+  diamcrustcoding
 
 >>>>>>> fdb72fa18704957f4feea48b452d454842271931
