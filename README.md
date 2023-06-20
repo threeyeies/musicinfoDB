@@ -3,6 +3,7 @@
 Proyecto de Bases de Datos II. Desarrollado con Nodejs y Oracle Database21c
 =======
 # musicinfoDB
+Administra la información sobre la temática de melodias, relacionadas con diferentes entidades del mismo contexto (Interprete, Categoria, Playlist, Colaboración)
 
 # Archivos constan de lo siguiente:
   -a: para hacer prueba de conexión
