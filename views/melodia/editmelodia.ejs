@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Usando boxicons-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+    <title>CRUD</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+
+<body>
+    <%- include('../header'); %>
+    <% if (user) { %>
+        <div class="container mt-4">
+            <div class="card border-secondary">
+                <div class="card-header">Editar Melodia</div>
+                <div class="card-body">
+                    <form action="/updatemelodia" method="POST">
+                        <input id="IDMELODIA" name="IDMELODIA" value="<%= user.IDMELODIA %>" hidden>
+                        <div class="mb-3">
+                            <label for="NOMBRE" class=" form-label">NOMBRE</label>
+                            <input type="text" class="form-control" id="NOMBRE" name="NOMBRE" value="<%= user.NOMBRE %>" tabindex="1">
+                        </div>
+                        <div class="mb-3">
+                            <label for="DURACION" class="form-label">DURACION</label>
+                            <input type="text" class="form-control" id="DURACION" name="DURACION" value="<%= user.DURACION %>" tabindex="1">
+                        </div>
+                        <div class="mb-3">
+                            <label for="ALBUM" class="form-label">ALBUM</label>
+                            <input type="text" class="form-control" id="ALBUM" name="ALBUM" value="<%= user.ALBUM %>" tabindex="1">
+                        </div>
+                        <div class="mb-3">
+                            <label for="LIKES" class="form-label">LIKES</label>
+                            <input type="text" class="form-control" id="LIKES" name="LIKES" value="<%= user.LIKES %>" tabindex="1">
+                        </div>
+                        <!-- <div class="mb-3">
+                            <label for="IDCATEGORIA" class="form-label">IDCATEGORIA</label>
+                            <input type="text" class="form-control" id="IDCATEGORIA" name="IDCATEGORIA" value="<%= user.IDCATEGORIA %>" tabindex="1">
+                        </div>
+                        <div class="mb-3">
+                            <label for="IDPLAYLIST" class="form-label">IDPLAYLIST</label>
+                            <input type="text" class="form-control" id="IDPLAYLIST" name="IDPLAYLIST" value="<%= user.IDPLAYLIST %>" tabindex="1">
+                        </div> -->
+                        <div class="mb-3">
+                            <label for="IDCATEGORIA" class="form-label">CATEGORIA</label>
+                            <select class="form-select" name="IDCATEGORIA">
+                                <% resultscat.forEach((user) => { %>
+                                    <option value="<%= user.IDCATEGORIA %>"><%= user.IDCATEGORIA + ') ' + user.GENERO + ' - ' + user.SUBGENERO %></option>
+                                <% }) %>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="IDPLAYLIST" class="form-label">PLAYLIST</label>
+                            <select class="form-select" name="IDPLAYLIST">
+                                <% resultsplay.forEach((user) => { %>
+                                    <option value="<%= user.IDPLAYLIST %>"><%= user.IDPLAYLIST + ') ' + user.NOMBRE %></option>
+                                <% }) %>
+                            </select>
+                        </div>   
+
+                        <button type="submit" class="btn btn-primary" tabindex="5">Guardar</button>
+                        <a href="/" class="btn btn-secondary">Cancelar</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <% } %>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"></script>
+</body>
+<footer>
+    <%- include('../footer'); %>
+</footer>
+</html>
